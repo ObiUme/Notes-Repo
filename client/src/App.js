@@ -1,19 +1,35 @@
 import { useState, useEffect } from "react";
+import SignIn from './components/SignIn'
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0);
+
+  const [currentUser, setCurrentUser] = useState(false)
+
+  function Login(user){
+    setCurrentUser(user)
+  }
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setCurrentUser(user));
+      }
+    });
   }, []);
 
+
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
-  );
+  <>
+    <Routes>
+      <Route 
+        path="/signin"
+        element={<SignIn onLogin={Login}/>}
+      />    
+    </Routes>
+    </>
+  )
 }
 
 export default App;
