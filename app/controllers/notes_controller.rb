@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found_response
+
     skip_before_action :authorize, only: :index
 
 

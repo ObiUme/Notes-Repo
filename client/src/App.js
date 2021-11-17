@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SignIn from './components/SignIn'
 import {Routes, Route} from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 function App() {
 
@@ -22,13 +23,16 @@ function App() {
 
   return (
   <>
-    <Routes>
-      <Route 
-        path="/signin"
-        element={<SignIn onLogin={Login}/>}
-      />    
-    </Routes>
-    </>
+  <div style={{position: 'absolute', top: 0, height: '10px', width: '100vw', backgroundColor: 'black'}}></div>
+    <Navbar/>
+    <div style={{position: 'absolute',  height: '10px', width: '100vw', backgroundColor: 'black'}}></div>
+      <Routes>
+        <Route 
+          path="/signin"
+          element={<SignIn onLogin={Login}/>}
+        />    
+      </Routes>
+  </>
   )
 }
 

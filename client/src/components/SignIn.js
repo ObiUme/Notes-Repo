@@ -52,6 +52,8 @@ export default function SignIn({onLogin}) {
             res.json().then((user) => onLogin(user))
         }
     })
+    setUsername('')
+    setPassword('')
   };
 
   return (
