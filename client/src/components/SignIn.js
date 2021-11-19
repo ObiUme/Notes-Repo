@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -30,6 +31,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn({onLogin}) {
+
+  const navigate = useNavigate()
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -54,6 +57,7 @@ export default function SignIn({onLogin}) {
     })
     setUsername('')
     setPassword('')
+    navigate('/main')
   };
 
   return (

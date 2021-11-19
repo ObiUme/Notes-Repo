@@ -1,5 +1,14 @@
+import Container from '@mui/material/Container';
+
 export default function Main(){
     return(
-        <div></div>
+        <Container 
+        style={{marginTop: '10px'}}
+        maxWidth='lg'
+        >   
+        
+        
+            
+        </Container>
     )
 }

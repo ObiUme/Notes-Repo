@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SignIn from './components/SignIn'
 import {Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Main from './components/Main'
 
 function App() {
 
@@ -23,13 +24,19 @@ function App() {
 
   return (
   <>
-  <div style={{position: 'absolute', top: 0, height: '10px', width: '100vw', backgroundColor: 'black'}}></div>
+  {currentUser ? 
+  <div>
+  (<div style={{position: 'absolute', top: 0, height: '10px', width: '100vw', backgroundColor: 'black'}}></div>
     <Navbar/>
-    <div style={{position: 'absolute',  height: '10px', width: '100vw', backgroundColor: 'black'}}></div>
+    <div style={{position: 'absolute',  height: '10px', width: '100vw', backgroundColor: 'black'}}></div>) </div> : null}
       <Routes>
         <Route 
-          path="/signin"
+          path="/"
           element={<SignIn onLogin={Login}/>}
+        />    
+        <Route 
+          path="/main"
+          element={<Main />}
         />    
       </Routes>
   </>
